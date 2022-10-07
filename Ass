@@ -1,0 +1,94 @@
+public class Ass {
+	static List<customerDetails> detail=new ArrayList<>();
+	static Scanner sc=new Scanner(System.in);
+	static loadCashToAtm acc=new loadCashToAtm();
+	public static void main(String[] args) {
+		customerdetails();
+		acc.upadate_cash(20, 100, 100);
+		int choice;
+		do {
+			System.out.println("-------------CustomerDetails&AtmProcess-------------");
+			System.out.println("1)Load Cash to ATM");
+			System.out.println("2)Atm Balance");
+			System.out.println("3)Customer Details");
+			System.out.println("4)ATM Operations");
+			System.out.println("Enter Choices to do Reqired Operation");
+			choice=sc.nextInt();
+			switch(choice) {
+			case 1:
+			    loadcash();
+				break;
+			case 2:
+				displayatmdenomenation();
+				break;
+			case 3:
+				displaydetails();
+				break;
+	 		case 4:
+	 			atmoperation();
+	 			break;
+	 		case 5:
+	 		   break;
+	 		 default:
+	 			 System.out.println("Enter correct choice");
+	 			 
+	 			 break;
+			}
+		}while(choice!=5);
+		
+	}
+
+   static void atmoperation() {
+		AtmOperations ob=new AtmOperations(); 
+	}
+	static void loadcash() {
+		System.out.println("----------Load to Cash---------");
+	    System.out.println("Enter note count->");
+	    System.out.println("Enter count_2000");
+	    int _2000=sc.nextInt();
+	    System.out.println("Enter count_500");
+	    int _500=sc.nextInt();
+	    System.out.println("Enter count_100");
+	    int _100=sc.nextInt();
+	    acc.upadate_cash(_2000,_500,_100);
+	    displayatmdenomenation();
+	}
+	static void customerdetails() {
+		customerDetails acc1=new customerDetails(101,"Abi",1712,20036);
+		customerDetails acc2=new customerDetails(102,"Adi",6560,24196);
+		customerDetails acc3=new customerDetails(103,"Ajay",9671,27792);
+		customerDetails acc4=new customerDetails(104,"Aji",8056,22250);
+		customerDetails acc5=new customerDetails(105,"Aravinth",9888,25679);
+        detail.addAll(Arrays.asList(acc1,acc2,acc3,acc4,acc5));
+	}
+    static void displaydetails() {
+    	System.out.println("------------------------Customer Details-----------------------");
+		System.out.println("---------------------------------------------------------------");  
+		System.out.printf("%8s %20s %12s %16s", "Acc No", "Account Holder", "Pin Number", "Account Balance");  
+		System.out.println();  
+		System.out.println("---------------------------------------------------------------");   
+		for(customerDetails customerdeatail: detail)  
+		{  
+		System.out.format("%7s %14s %14s %16s",customerdeatail.getAccNo(), customerdeatail.getAhName(), customerdeatail.getsPin(), customerdeatail.getBalance());  
+		System.out.println();  
+		}  
+		System.out.println("----------------------------------------------------------------");
+		System.out.print("\n");
+	}
+    static void displayatmdenomenation() {
+    	System.out.println("------------------Atm Balance-------------------");
+		System.out.println("---------------------------------------------");  
+		System.out.printf("%8s %12s %12s ", "Denomination", "Number", "Value");  
+		System.out.println();  
+		System.out.println("---------------------------------------------");  
+		System.out.format("%7s %16s %12s ","2000", a12.getCount_2000(),a12.getTotal_2000());
+		System.out.println();
+		System.out.format("%7s %16s %12s ","500", a12.getCount_500(),a12.getTotal_500());  
+		System.out.println();
+		System.out.format("%7s %16s %12s ","100", a12.getCount_100(),a12.getTotal_100()); 
+		System.out.println();
+		System.out.println("---------------------------------------------- ");  
+		System.out.print("\n");
+    }
+	
+}
